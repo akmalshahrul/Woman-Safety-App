@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="#FFF8F5"
-    tools:context=".AlertActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- Scrollable Content -->
     <ScrollView
-        android:id="@+id/alert_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav"
+        android:layout_above="@id/bottom_nav"
         android:padding="16dp">
 
         <LinearLayout
@@ -19,69 +15,79 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Title: Push Notifications -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔔 Push Alert Notifications"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#D81B60"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Sample Notification -->
+            <!-- Title -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="• Fire alarm reported at Dorm A\n• Power outage near Cafeteria"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:layout_marginBottom="20dp" />
+                android:text="📢 Push Alert Notifications"
+                android:textSize="22sp"
+                android:textColor="#D81B60"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
 
-            <!-- Title: Emergency SOS -->
+            <!-- Alert List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Section Header -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="🚨 Emergency SOS"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 android:textColor="#D81B60"
+                android:textStyle="bold"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Input Box -->
+            <!-- Input Field -->
             <EditText
-                android:id="@+id/sosInput"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:hint="Describe your emergency here..."
-                android:background="@android:drawable/edit_text"
-                android:padding="12dp"
-                android:textColor="#000000"
-                android:textColorHint="#888888"
-                android:textSize="15sp"
-                android:gravity="top"
-                android:layout_marginBottom="20dp" />
-
-            <!-- SOS Button -->
-            <Button
-                android:id="@+id/btnSendSOS"
+                android:id="@+id/editTextAlert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Send Distress Signal"
+                android:hint="Type your emergency message..."
+                android:background="@android:drawable/editbox_background_normal"
+                android:padding="12dp" />
+
+            <!-- Send Alert Button -->
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 Send Alert"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#D81B60" />
+                android:backgroundTint="#D81B60"
+                android:layout_marginTop="12dp" />
         </LinearLayout>
     </ScrollView>
+
+    <!-- Clear All Floating Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnClearAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_delete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="Clear All Alerts"
+        android:tint="#FFFFFF"
+        android:backgroundTint="#D81B60" />
+
 
     <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottom_nav"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:gravity="center"
         android:background="#F8BBD0"
+        android:gravity="center"
         android:padding="10dp">
 
         <TextView
@@ -117,9 +123,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="🔔\nAlert"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/nav_profile"
@@ -130,5 +136,4 @@
             android:textAlignment="center"
             android:textSize="14sp" />
     </LinearLayout>
-
 </RelativeLayout>

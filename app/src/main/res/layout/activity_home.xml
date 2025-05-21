@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F5"
-    tools:context=".HomePageActivity">
+    android:background="#FFF8F5">
 
     <ScrollView
-        android:id="@+id/home_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_nav"
@@ -18,57 +15,135 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Removed: Settings Button -->
-
+            <!-- 🚀 Quick Access Title -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nQuick Access"
+                android:text="🚀 Quick Access"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#000000" />
+                android:textSize="22sp"
+                android:textColor="#D81B60"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="• SOS Button\n• Emergency Contacts\n• Safe Routes"
-                android:textSize="15sp"
-                android:textColor="#000000" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- 🔘 Updated Quick Access Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nRecent Alerts"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <Button
+                    android:id="@+id/btnSOS"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="🚨 SOS"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#D81B60"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnContacts"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="📞 Contacts"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#D81B60"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- 🧾 Recent Alerts Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🧾 Recent Alerts"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#000000" />
+                android:textSize="22sp"
+                android:textColor="#D81B60"
+                android:gravity="center"
+                android:layout_marginTop="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="• Stranger seen near campus gate\n• Suspicious vehicle spotted at 9:12 PM"
-                android:textSize="15sp"
-                android:textColor="#000000" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/alertRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="16dp"
+                android:contentDescription="Recent alerts"
+                android:importantForAccessibility="no" />
+
+            <!-- 🛡️ Geofence Warnings Title -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nGeofence Warnings and Incidents"
+                android:text="🛡️ Geofence Warnings"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#000000" />
+                android:textSize="22sp"
+                android:textColor="#D81B60"
+                android:gravity="center"
+                android:layout_marginTop="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="• Zone B: High incident rate\n• Zone C: Temporary blackout warning"
-                android:textSize="15sp"
-                android:textColor="#000000" />
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:background="@android:color/white"
+                android:elevation="2dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ Shah Alam Seksyen 6 – DANGER"
+                    android:textColor="#D81B60"
+                    android:textStyle="bold"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="✅ KL Sentral – Safe"
+                    android:textColor="#4CAF50"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⚠️ Ampang Jaya – DANGER"
+                    android:textColor="#D81B60"
+                    android:padding="4dp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
+    <!-- 🧭 Bottom Nav Bar -->
     <LinearLayout
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
@@ -125,5 +200,4 @@
             android:textAlignment="center"
             android:textSize="14sp" />
     </LinearLayout>
-
 </RelativeLayout>

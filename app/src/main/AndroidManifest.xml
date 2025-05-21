@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ✅ Required for Firebase & HTTP access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ✅ Required for getting device location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,17 +20,23 @@
         android:theme="@style/Theme.SafetyApp"
         tools:targetApi="31">
 
+        <!-- ✅ Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAykvLbaB3CKenXyi0Xze2bipO25_14PTs" />
+
+        <!-- ✅ App Activities -->
         <activity android:name=".AlertActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".LocationActivity" />
         <activity
             android:name=".CallActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -34,4 +47,5 @@
         </activity>
 
     </application>
+
 </manifest>
